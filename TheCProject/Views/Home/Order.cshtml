@@ -1,0 +1,140 @@
+﻿@model OrderFormViewModel
+@{
+    ViewData["Title"] = "Order";
+}
+
+@{
+    OrderViewModel order = ViewBag.Output;
+    List<DecorationViewModel> decorations = order.Decorations;
+    List<FillingViewModel> fillings = order.Fillings;
+    List<IngredientViewModel> ingredients = order.Ingredients;
+    List<ToppingViewModel> toppings = order.Toppings;
+    List<WeightViewModel> weights = order.Weights;
+}   
+@using (Html.BeginForm("OrderConfirmation", "Home", FormMethod.Post))
+{
+    <div class="d-flex justify-content-between flex-wrap w-100 factoryContainer">
+        <div class="d-flex justify-content-between flex-column mb-auto">
+            <div class="orderGroup">
+                <div class="orderGroupTitle">
+                    Ingredients Flavour
+                </div>
+                <div class="d-flex justify-content-between flex-wrap">
+                    @{
+                        string radioChecked = "checked";
+                    }
+
+                    @foreach (IngredientViewModel ingredient in ingredients)
+                    {
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="IngredientId" value="@ingredient.Identifier" @radioChecked />
+                            <label class="form-check-label  text-black" for="@ingredient.Identifier">@ingredient.Name (@ingredient.Price €)</label>
+                        </div>
+                        radioChecked = "";
+                    }
+                    @{
+                        radioChecked = "checked";
+                    }
+                </div>
+            </div>
+
+            <div class="orderGroup">
+                <div class="orderGroupTitle">
+                    Filling Cream
+                </div>
+                <div class="d-flex justify-content-between flex-wrap">
+                    @foreach (FillingViewModel filling in fillings)
+                    {
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="FillingId" value="@filling.Identifier" @radioChecked />
+                            <label class="form-check-label  text-black" for="@filling.Identifier">@filling.Name (@filling.Price €)</label>
+                        </div>
+                        radioChecked = "";
+                    }
+                    @{
+                        radioChecked = "checked";
+                    }
+                </div>
+            </div>
+
+            <div class="orderGroup">
+                <div class="orderGroupTitle">
+                    Topping
+                </div>
+                <div class="d-flex justify-content-between flex-wrap">
+                    @foreach (ToppingViewModel topping in toppings)
+                    {
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="ToppingId" value="@topping.Identifier" @radioChecked />
+                            <label class="form-check-label  text-black" for="@topping.Identifier">@topping.Name (@topping.Price €)</label>
+                        </div>
+                        radioChecked = "";
+                    }
+                    @{
+                        radioChecked = "checked";
+                    }
+                </div>
+            </div>
+
+
+            <div class="orderGroup">
+                <div class="orderGroupTitle">
+                    Decoration
+                </div>
+                <div class="d-flex justify-content-between flex-wrap">
+                    @foreach (DecorationViewModel decoration in decorations)
+                    {
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="DecorationId" value="@decoration.Identifier" @radioChecked />
+                            <label class="form-check-label  text-black" for="@decoration.Identifier">@decoration.Name (@decoration.Price €)</label>
+                        </div>
+                        radioChecked = "";
+                    }
+                    @{
+                        radioChecked = "checked";
+                    }
+                </div>
+            </div>
+
+            <div class="orderGroup">
+                <div class="orderGroupTitle">
+                    Weight
+                </div>
+                <div class="d-flex justify-content-between flex-wrap">
+                    @foreach (WeightViewModel weight in weights)
+                    {
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="WeightId" value="@weight.Identifier" @radioChecked />
+                            <label class="form-check-label  text-black" for="@weight.Identifier">@weight.Name (@weight.Price €)</label>
+                        </div>
+                        radioChecked = "";
+                    }
+                    @{
+                        radioChecked = "checked";
+                    }
+                </div>
+            </div>
+            
+            
+        </div>
+        <div class="d-flex justify-content-between flex-column">
+            <div class="mb-auto orderCakeImageBackground">
+                <img class="orderCakeImage" src="/Img/Bolo com oreos@2x.png" />
+            </div>
+            
+            <div class="indexTextDiv">
+                <div class="orderTitle">Homemade cakes, made with love.</div>
+                <button class="buttonCake" id="buttonExploreAndCreate" type="submit">
+                    Order Now
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    
+}

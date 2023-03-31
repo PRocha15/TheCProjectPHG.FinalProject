@@ -1,0 +1,30 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Factory";
+    List<CakeViewModel> cakes = ViewBag.output;
+}
+
+
+
+
+
+<div class="d-flex justify-content-center flex-wrap factoryContainer">
+
+@{
+    foreach(CakeViewModel cake in cakes){
+            <div class="d-flex justify-content flex-column factoryItem">
+                <img src="@cake.ImageURL" alt="..." class="factoryCakeImage" />
+                <div class="factoryTextItem factoryCakeTitle">@cake.Name</div>
+                <div class="factoryTextItem">@cake.Description</div>
+                
+            </div>
+            
+
+        
+        
+    }
+}
+
+</div>

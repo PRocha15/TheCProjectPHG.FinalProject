@@ -1,0 +1,112 @@
+﻿@model OrderConfirmationViewModel
+@{
+    ViewData["Title"] = "Order Confirmation";
+}
+
+@using (Html.BeginForm("OrderConfirmationSuccess", "Home", FormMethod.Post))
+{
+    
+    <div class="d-flex justify-content-between flex-wrap w-100">
+        <div class="d-flex justify-content-between flex-column flex-fill confirmOrderForm">
+                <div class="flex-fill">&nbsp;</div>
+                <div class="orderConfirmationTitle">Checkout</div>
+            <div class="orderConfirmationInput">
+                <div class="form-floating">
+                @Html.TextBoxFor(oc => oc.Name,new  
+            { @placeholder = "Full Name", @class = "form-control", @required = "true"} )
+                    <label for="floatingInput">Full Name</label>
+                </div>
+             </div>
+            <div class="orderConfirmationInput">
+                <div class="form-floating">
+                @Html.TextBoxFor(oc => oc.Email,new  
+            { @placeholder = "Email", @class = "form-control", @required = "true"} )
+                    <label for="floatingInput">Email</label>
+                </div>
+             </div>
+             <div class="orderConfirmationInput">
+                <div class="form-floating">
+                @Html.TextBoxFor(oc => oc.Address,new  
+            { @placeholder = "Address", @class = "form-control", @required = "true"} )
+                    <label for="floatingInput">Address</label>
+                </div>
+             </div>
+              <div class="orderConfirmationInput" style="margin-bottom:15px;">
+                <div class="form-floating">
+                @Html.TextBoxFor(oc => oc.Phone,new  
+            { @placeholder = "Phone Number", @class = "form-control", @required = "true"} )
+                    <label for="floatingInput">Phone Number</label>
+                </div>
+             </div>
+            
+            
+        </div>
+        <div class="d-flex justify-content-between flex-column orderConfirmationCakeImageBackground">
+            <div class="mb-auto ">
+
+                <div class="d-flex justify-content-between flex-column orderList">
+                    <div class="flex-fill orderConfirmationSpace">&nbsp;</div>
+                    <div class="orderConfirmationTitle">Order Summary</div>
+                    <div class="d-flex justify-content-between text-muted orderConfirmationList">
+                        <div>
+                            @Model.Ingredient.Name
+                        </div>
+                        <div>
+                            @Model.Ingredient.Price €
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between text-muted orderConfirmationList">
+                        <div>
+                            @Model.Filling.Name
+                        </div>
+                        <div>
+                            @Model.Filling.Price €
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between text-muted orderConfirmationList">
+                        <div>
+                            @Model.Decoration.Name
+                        </div>
+                        <div>
+                            @Model.Decoration.Price €
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between text-muted orderConfirmationList">
+                        <div>
+                            @Model.Topping.Name
+                        </div>
+                        <div>
+                            @Model.Topping.Price €
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between text-muted orderConfirmationList">
+                        <div>
+                            @Model.Weight.Name
+                        </div>
+                        <div>
+                            @Model.Weight.Price €
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between orderConfirmationTotal">
+                        <div>
+                            Total
+                        </div>
+                        <div>
+                            @Model.Cost €
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="confirmOrderTextButton">
+                
+                <button class="buttonConfirm" id="buttonExploreAndCreate" type="submit">
+                    Purchase
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    
+}

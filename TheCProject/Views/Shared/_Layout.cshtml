@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TheCProject</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow mb-3" style="border-bottom:1px solid black">
+       
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm w-100">
+            <div class="container-fluid w-100">
+                
+                
+                
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex w-100">
+                    <ul class="navbar-nav justify-content-center w-100">
+                        <li class="nav-item">
+                                <a class="nav-link text-dark logoItem" asp-area="" asp-controller="Home" asp-action="About">About</a>
+                        </li>
+                         <li class="nav-item">
+                                <a class="nav-link text-dark logoItem" asp-area="" asp-controller="Home" asp-action="Factory">Factory</a>
+                        </li>
+                        <li>
+                                <a asp-area="" asp-controller="Home" asp-action="Index"><img class="logoNavImage" src="/Img/Logo.png" /></a>
+                         </li>
+                        <li class="nav-item">
+                                <a class="nav-link text-dark logoItem" asp-area="" asp-controller="Home" asp-action="Order">Order</a>
+                        </li>
+                         <li class="nav-item">
+                                <a class="nav-link text-dark logoItem" asp-area="" asp-controller="Home" asp-action="Contacts">Contacts</a>
+                        </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle logoItem" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Admin
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="/Cake">Cakes</a></li>
+                                    <li><a class="dropdown-item" href="/Decoration">Decorations</a></li>
+                                    <li><a class="dropdown-item" href="/Filling">Fillings</a></li>
+                                    <li><a class="dropdown-item" href="/Ingredient">Ingredients</a></li>
+                                    <li><a class="dropdown-item" href="/Topping">Toppings</a></li>
+                                    <li><a class="dropdown-item" href="/Weight">Weights</a></li>
+                                </ul>
+                            </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <hr></hr>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer text-muted fixed-bottom" style="border-top:1px solid black; padding-bottom:5px">
+        <div class="container footerContainer">
+            &copy; 2023 - TheCProject Helena Patrícia Gabriela
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
